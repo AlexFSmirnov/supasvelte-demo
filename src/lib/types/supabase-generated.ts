@@ -88,7 +88,12 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      increment_global_counter: {
+        Args: {
+          p_id: number
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never

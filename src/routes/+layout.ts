@@ -69,6 +69,7 @@ export const load = (async ({ fetch, data, depends }) => {
     }
 
     // For ease of access, we are creating a user data store.
+    // TODO: THIS IS BAD, DON'T DO THIS
     const userData = writable(await getUserData());
 
     // Finally, we are returning all the data to be used in the child pages.

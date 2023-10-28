@@ -51,13 +51,10 @@
     };
 
     // This function will update the global counter in the database.
+    // Instead of using the stored $globalCounter, we are calling a database function
+    // defined in the global-counter-function.sql migration. This makes the solution spam-proof.
     const incrementGlobalCounter = async () => {
-        await supabase
-            .from('public_table')
-            .update({
-                global_counter: $globalCounter + 1,
-            })
-            .eq('id', 0);
+        await supabase.rpc('increment_global_counter', { p_id: 0 });
     };
 </script>
 
